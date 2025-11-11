@@ -21,10 +21,23 @@ The goal is to evaluate how different MARL algorithms perform under **cooperativ
 All implementations were executed on **Google Colab** using the following dependencies:
 
 ```bash
-pip install torch torchvision torchaudio
-pip install mlagents==0.30.0
-pip install numpy matplotlib seaborn
-pip install gym
+# 0. Clone SoccerTwos Environment
+git clone https://github.com/bryanoliveira/soccer-twos-env.git
+cd soccer-twos-env
+
+# 1. Core Unity Environment API
+pip install mlagents-envs==0.28.0 protobuf==3.20.3
+
+# 2. Gym (compatible with Python 3.12, ignoring older pinned versions)
+pip install gym==0.25.2
+
+# 3. Gym-Unity wrapper (needed by SoccerTwos)
+pip install gym-unity==0.27.0 --no-deps
+
+# 4. Install SoccerTwos wrapper in editable mode
+cd /content/ml-agents/soccer-twos-env
+pip install -e . --no-deps
+
 ```
 
 ---
